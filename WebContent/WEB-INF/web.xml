@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>HomePage</display-name>
+  <welcome-file-list>
+    <welcome-file>home.jsp</welcome-file>
+    
+  </welcome-file-list>
+  
+  <servlet>
+        <servlet-name>Directionsearch</servlet-name>
+        <servlet-class>search.Directionsearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Directionsearch</servlet-name>
+        <url-pattern>/Directionsearch.do</url-pattern>
+    </servlet-mapping>  
+	
+	<servlet>
+        <servlet-name>Stop</servlet-name>
+        <servlet-class>search.Stop</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Stop</servlet-name>
+        <url-pattern>/stop.do</url-pattern>
+    </servlet-mapping>
+	
+	 <servlet>
+        <servlet-name>AlbanyDirectionsearch</servlet-name>
+        <servlet-class>search.AlbanyDirectionsearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlbanyDirectionsearch</servlet-name>
+        <url-pattern>/AlbanyDirectionsearch.do</url-pattern>
+    </servlet-mapping>  
+	
+	<servlet>
+        <servlet-name>AlbanyStop</servlet-name>
+        <servlet-class>search.AlbanyStop</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlbanyStop</servlet-name>
+        <url-pattern>/Albanystop.do</url-pattern>
+    </servlet-mapping>
+	
+	
+		 <servlet>
+        <servlet-name>CDTADirectionsearch</servlet-name>
+        <servlet-class>search.CDTADirectionsearch</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CDTADirectionsearch</servlet-name>
+        <url-pattern>/CDTADirectionsearch.do</url-pattern>
+    </servlet-mapping>  
+	
+	<servlet>
+        <servlet-name>CDTAStop</servlet-name>
+        <servlet-class>search.CDTAStop</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CDTAStop</servlet-name>
+        <url-pattern>/CDTAstop.do</url-pattern>
+    </servlet-mapping>
+	
+	
+</web-app>
+

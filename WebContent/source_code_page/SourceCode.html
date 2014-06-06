@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Source Codes from Tianchi Zhang's Dissertation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Zhang Tianchi"/>
+    <meta name="description" content="My Dissertation at UAlbany">
+    <meta name="keywords" content="Tianchi Zhang, UAlbany, Information Sciences" />
+    <link href="style2.css" rel="stylesheet" type="text/css"/>
+    <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+</head>
+
+<body id="page1">
+<div id="BodyBg">
+
+
+
+<div id="container">
+<!-- header-->
+
+    <header id="main_header">
+        <div id="logo">
+		<br /> 
+		<br /> 
+            <img alt="ua Logo" src="brt.jpg" width="120px" height="80px"/>
+        </div>
+        
+        <hgroup id="headergroup_1">      
+<br />		
+            <h1 style="font-family:Times, serif">Source Codes for GTFS Data Visualization & Application and BRT Station Tool </h1>
+			<br />
+            <h2 style="font-family:Times, serif">from Tianchi Zhang's Dissertation Project</h2>
+        </hgroup>
+   
+        <div id="header_image">
+		<img alt="Bald Eagle" src="logo.jpg" width="120px" height="120px"/>
+        </div>
+    </header>
+<!--End of header-->
+<!--body content-->
+    <div id="main_body">
+    <div id="left_nav">
+        <ul>
+            <li><a href="#dissertation"> My Dissertation and Source Code Guideline  </a></li>
+            <li><a href="#gtfs">GTFS Data Visualization Source Codes</a></li>
+            <li><a href="#passenger">Passenger Data Process Technique and Source Codes</a></li>
+            <li><a href="#weather">Weather Model Source Codes</a></li>
+            <li><a href="#brtst">BRTST Tool Source Codes</a></li>
+            <li><a href="#citation">Citation</a></li>
+        </ul>
+    </div>
+    
+    <div id="body_content">
+        <h3  id="dissertation" style="text-align:center">My Dissertation and Source Code Guideline</h3>
+        <div class="BodyDiv">                       
+            <p>
+                According to “Commuting in the United States 2009”, in that year 86.1% of Americans commuted by car, light truck, or van, and about three-quarters of these individuals were driving alone, causing traffic congestion and raising environmental and energy-saving concerns in society. Therefore, transportation experts encourage the public to take public transportation and recommend the development of Bus Rapid Transit (BRT). Currently, bus service restructuring and BRT plans are based on rider surveys, community meetings and on-street interviews. However, these methods require large investments in manpower and material resources, and produce potentially biased results. </p>
+				
+				
+<p>				In my dissertation, I used the machine learning method, a computer program that automatically analyzes a large body of data and calculates what information is most relevant, to evaluate current bus station usage and determine potential BRT station locations. The station features considered by the machine learning include passenger activities (getting on and getting off) in different times and weather conditions, station distance to prior/next station, topography, and so on. 
+</p>
+
+<p>The passenger data, collected by a local transit agency in 2008/2009 in Albany, NY, were classified by different times and weather conditions. The author also performed deep research into GTFS data and developed a GTFS data visualization website, using Google Maps API, to retrieve station distance and topography data. After testing different algorithms, the EM algorithm and K-Means were determined to be the best algorithms for clustering the stations. While the machine learning strategy can successfully make comprehensive evaluations of all stops, it is inadequate where specific routes are concerned. Therefore, the author also developed an open source tool, BRTST, to do machine learning on a specific route by rule based K-Means algorithm.  </p>
+
+<p>
+                  Passenger activities in each station is one of the most features in determining whether a station is qualified to be a BRT station. In my dissertation, the passenger data were collected by CDTA in 2008/2009 in Albany, NY. 1856 trips were disorderly distributed in 18 folders ,which were read by Java Excel API and inserted into one csv file for future calculation. Please Click 
+				  <a href="#passenger"><ins> <b> here</b> </ins></a>to check the sample ridership data and source code to process the data. 
+</p>
+
+<p>
+				  In addition, as we all know, weather conditions have strong influence on the transit ridership. The passenger activities should be classified by different weather conditions. In order to evaluate the weather influences on passenger ridership in different weather conditions, I built an hourly-weather data scoring model written in Java. Please click <a href="#weather"><ins><b> here</b></ins> </a> to see the details and source codes of this model. 
+ </p>
+ <p>
+                  Moreover, in order to collect the data of station distance and station topography, I processed the GTFS data and built the GTFS data visualization and application (GTFSVA) website for calculation of station distance between two consecutive stations and station elevations by Google Maps API. Please click<a href="#gtfs"> <ins><b> here</b></ins> </a>for GTFSVA project zip file, which includes the code to build the GTFS database and website interface. 
+		</p>
+		
+		
+		<p>		  
+				  Finally, I developed BRTST tool to locate potential BRT stations through a high usage route. This tool is written in Java. BRTST allows users to run their own stations datasets with additional station feature, changing the distance ratio of K-Means, and increasing/decreasing weight of each feature. Please click <a href="#brtst"> <ins><b> here</b></ins> </a > for the source code of BRTST. 
+</p>
+				  
+				  
+              
+                        <p class="back"><a href="">back..</a></p>
+
+          
+        </div>
+		
+		    <div id="gtfs" class="BodyDiv">            
+            <h3>GTFS Data Visualization and Application</h3>
+               <p>
+                <a class="pdfLink" href="GTFSVA.zip" target="_blank"><span class="InlineLink">GTFS Source Codes: GTFS.zip
+                </span></a>
+            </p>
+    <p>
+                <a class="pdfLink" href="DDL.zip" target="_blank"><span class="InlineLink">GTFS Database Definition Language (DDL)
+                </span></a>
+            </p>
+            <p>
+         With developments of web technology and mobile technology, developers are trying to provide real time information of transit on Internet or smart phone. In  this  situation,  open  transit  data  with  unified  format  of  schedules  and geographic information, such as the General Transit Feed Specialization (GTFS), is required. GTFS data was formated by Google and Portland TriMet in 2005 and published in 2007. Google encourages transit agencies to follow the format of GTFS, create transit data and post on the web as open sources for public use. </p><p> The GTFS format is easy for agencies to create,  convenient  for programmers to access and comprehensive enough for public to understand an intricate transit system,  so  the  feed  is  the  mostly  used  standard  for  static  transit  data  exchange  in  the  United States. Because of the rising popularity, the GTFS format has been adopted by the transit industry as a standard for sharing schedule data, and more and more transit agencies uploaded GTFS data on the Google site. Today, over 170 transit agencies in the United States and Canada generate and publish their schedule as GTFS .</p><p>
+ Generally, on the basis of the  GTFS  format,  a  transit  agency  should  create  13  tables,  in  which  agency  table,  stop  table, routes  table,  trips  table  for  each  route,  stops  times  table  and  calendar  tables  are  mandatory;  optional  tables  include  fare  table,  transfer  table  and  feed  table  and  so  on.
+ 
+
+            </p>
+            
+            <p>
+ I designed a <a href="http://54.86.39.33:8080/GTFS/home.jsp"><ins><b>web interface</b></ins></a> which is a visualization tool for GTFS data. I researched on the GTFS data and concluded errors and challenges for programmers who are going to apply this data format. In this web interface, GTFS data from all transit agencies could be visualized in Google Maps as a particular route with all of its stations. Also, descriptive statistical analysis, such as total length of the route, average distance of stations distance and standard deviation of station distance could be calculated and presented in the web. Moreover, the elevation statistics of a particular route could be presented in a chart column and Google Map. </p><p>
+As I generalized above, if transit agencies upgrade regular bus service to BRT system, there must be fewer stations. In order to make full use of the current facilities, transit agencies will choose the BRT stations from current regular bus stations/stops. In this situation, station average distance, standard deviation of station distance and elevations are important components in determining the future BRT station location. This GTFS visualization web could be the basis to develop Bus Rapid Transit station selection algorithm, which could be a topic for future research. 
+
+            </p>
+            
+               <div>
+                <img  class="BodyImg" src="GTFS.jpg" width="480px" height="320px"/> 
+            </div>
+            
+            <p class="caption"> This is an interface of GTFS Data Visualization & Application Website  
+                          
+            </p>
+            
+            <p class="back"><a href="">back..</a></p>
+        </div>
+        
+        <div id="passenger" class="BodyDiv">            
+            <h3>Passenger Data Process Technique</h3>
+             <p>
+                <a class="pdfLink" href="PassengerDataProcess.zip" target="_blank"><span class="InlineLink">Passenger Data Process Source Codes: Passenger.zip
+                </span></a>
+            </p>
+			          <p>
+                <a class="pdfLink" href="bus 12.zip" target="_blank"><span class="InlineLink"> Route 12 Sample Data
+                </span></a>
+            </p>
+			
+            <p>
+The Department of Geography and Planning in State University of New York at Albany got a contract from CDTA to collect ridership census for the CDTA bus routes running on Western and Washington Avenue. The data collection was carried out by hiring students through fall 2008 and spring 2009. The data were to be collected for Routes 9, 10, 11, 12, 63 and 90. </p>
+<p>
+Route 10, Route 11 and Route 12 serve from downtown Albany to uptown Crossgates Mall. Route 10 goes along Western Avenue. The service of Route 10 starts from downtown, either at Greyhound Station or Broadway Station. Therefore, Route 10 actually consists of two routes with one tiny difference, Greyhound Station to Crossgates Mall and Broadway to Crossgates Mall. Route 10 runs between Broadway and Crossgates Mall by 59 eastbound stops and 68 westbound stops. When Route 10 runs from/to Greyhound station, it has 51 eastbound stops and 59 westbound stops. Most of the stops on Western Avenue are serving both  sub-routes. 
+            </p>
+            
+			<p>
+			All of the passenger data are stored in 18 folders and 129 Excel files, each one containing multiple spreadsheets. The author wrote a short VBA code to split multiple spreadsheets in one Excel file into multiple single-spreadsheet Excel files. 
+			</p>  
+            <p>
+The purpose of processing the passenger data is to read all of ridership data, clarify the quantity of ridership data for each route, select the important attributes (columns), and insert all of the ridership data into one CSV  file for further classification.             </p>
+            
+          
+			
+			
+               <div>
+                <img  class="BodyImg" src="passenger.jpg" width="480px" height="320px"/> 
+            </div>
+            
+            <p class="caption"> Solution Framework for Reading Passenger Data
+                         
+            </p>
+            
+            <p class="back"><a href="">back..</a></p>
+        </div>
+
+		
+		    <div id="weather" class="BodyDiv">            
+            <h3>Hourly Weather Data Model</h3>
+             <p>
+                <a class="pdfLink" href="Weather_Model.zip" target="_blank"><span class="InlineLink">Weather Model Source Codes: Weather_Model.zip
+                </span></a>
+            </p>
+			
+             <p>
+                <a class="pdfLink" href="climate_test.csv" target="_blank"><span class="InlineLink">Albany Weather Sample Data: climate_test.csv
+                </span></a>
+            </p>
+			
+            <p>
+ Public transit service can be significantly influenced by weather. Good weather can enhance the reliability of transit service and attract more riders. Bad weather may influence transit on time performance, reduce transit ridership, extend transit running time, and reduce service reliability. In addition, a better understanding of the weather’s impact on transit performance can help to evaluate station usage in different weather conditions and determine the best location for bus shelters and other facilities and locate potential BRT stations.             </p>
+            
+            <p>
+CDTA’s passenger data includes trip date and departure times, so hourly weather data during the ridership survey period are helpful to identify the weather condition for a specific trip.  
+In order to evaluate the weather’s influence on station usage and plan for future BRT stations, I bought weather data on November 8th, 2013 from Weather Warehouse (www.weather-warehouse.com), an on-line store which provides users with direct access to an extensive database of weather information created by meteorologists at Weather Source             </p>
+            <p>The hypothesis is that all of  seven weather attributes will influence the weather score equally. The full score for each attributes is 100. There are 6,720 records in the data. The model could grade each record by grading each attribute of the record, combining all of the scores for each attribute and dividing by 7. The Significant weather observations columns in the original weather data can be helpful to classify good, fair or bad weather. </p>
+               <div>
+                <img  class="BodyImg" src="weather_model.jpg" width="480px" height="320px"/> 
+            </div>
+            
+            <p class="caption"> Weather Scoring System for Each Attribute           
+            </p>
+            
+            <p class="back"><a href="">back..</a></p>
+        </div>
+		
+		
+		    <div id="brtst" class="BodyDiv">            
+            <h3>Bus Rapid Transit Station Selection Tool</h3>
+             <p>
+                <a class="pdfLink" href="BRTST.zip" target="_blank"><span class="InlineLink">BRTST Source Codes: BRTST.zip
+                </span></a>
+            </p>
+			   <p>
+                <a class="pdfLink" href="12StopEast.csv" target="_blank"><span class="InlineLink">Sample Dataset
+                </span></a>
+            </p>
+			
+            <p>
+According to K-Means and EM results, currently, the dataset designed with 104 features (please read my dissertation regarding feature design) is working well in the comprehensive evaluation of station usage at different times and in different weather conditions, station distance and location type, and so on. However, when applied to a specific route, the results are not promising. For example, when K-Means is applied to Route 12 data, the stations in midtown Albany are continuously targeted as low-usage stops. However, in a real BRT system, there should be at least a station in this area, depending on the length of these continuous low-usage stops.       based on K-Means algorithm, the author developed an open source tool, BRT Station Selection Tool (BRTST), to do machine learning on a specific route. This tool is written in Java.       </p>
+            
+            <p>
+The data testing results show that five-feature design (distance to next/prior station, location type, pairing station, passenger load) is doing well to do the stops clustering for Route 12 Broadway.  BRTST allows users to include additional features. For example, in San Francisco, topography may be included as the feature because the topography in San Francisco is varied. BRTST with appropriate thresholds (distance ratio) value and KNS calculation could work well to avoid to continuously target stops as low usage stops. 
+            </p>
+            
+            
+            
+               <div>
+                <img  class="BodyImg" src="BRTST1.jpg" width="480px" height="320px"/> 
+            </div>
+            
+            <p class="caption"> Standard K-Means Result by BRTST  
+                          
+            </p>
+			
+			   <div>
+                <img  class="BodyImg" src="BRTST2.jpg" width="480px" height="320px"/> 
+            </div>
+            
+            <p class="caption"> K-Means Result by BRTST When Threshold Value is 0.5 
+                          
+            </p>
+            <p class="back"><a href="">back..</a></p>
+        </div>
+		 
+		 
+		   <div id="citation" class="BodyDiv">            
+            <h3>Citation</h3>
+            <p>
+                <ins><span class="InlineLink">For using GTFS website and source code, please cite this paper. 
+                </span></ins>
+            </p>
+Zhang, Tianchi, Mei-Hwa Chen and Catherine Lawson. 2014. <i>“General Transit Feed Specification Data Visualization
+----GTFS Visuliazation Website Based on Google Maps API”.</i> In 2014 22nd International Conference on Geoinformatics in Kaohsiung   
+      </p>
+     
+     
+            <p class="back"><a href="">back..</a></p>
+        </div>
+		 
+		 
+
+    </div>
+    <div class="spacer"></div>
+    </div> <!-- End of main_body-->
+<!-- End of body content-->
+
+    <footer id="main_footer">
+        <p>Copyright &copy; 2013 Tianchi Zhang</p>
+        <p>Website Design & Implementation by Tianchi Zhang</p>
+    </footer>
+    
+</div> <!-- End of BodyBg-->    
+</div> <!-- End of page_container-->
+</body>
+    
+</html>
